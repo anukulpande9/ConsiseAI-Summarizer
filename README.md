@@ -27,6 +27,7 @@ If not installed, [Download Python](https://www.python.org/downloads/) and insta
 Run the following command in the project folder:
 ```sh
 pip install torch transformers openai-whisper nltk pillow pypdf2 python-docx tk
+python -c "import nltk; nltk.download('punkt')"
 ```
 
 ### 3️⃣ Install FFmpeg (For Audio/Video Support)
