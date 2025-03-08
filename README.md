@@ -126,7 +126,7 @@ This project is open-source under the **MIT License**.
 ---
 
 ## 👨‍💻 Author
-Developed by **Anukul Pande** as a **Final Year Project**.
+Developed by **Anukul Pande (Team Lead)** and **Dev Chukambe** as a **Final Year Project**.
 
 ---
 
