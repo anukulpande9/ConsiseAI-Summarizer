@@ -1,12 +1,12 @@
 # 🌟 ConsiseAI – AI-Based Document Summarization Tool
 
 🚀 **ConsiseAI** is an advanced AI-powered tool for summarizing **text, PDFs, Word documents, and even audio/video transcriptions!**  
-It uses **Facebook's BART Transformer** for intelligent summarization and **OpenAI Whisper** for speech-to-text conversion.
+It uses **T5 Transformer** for intelligent summarization and **OpenAI Whisper** for speech-to-text conversion.
 
 ---
 
 ## 🔹 Features
-- **AI-Powered Summarization** – Uses **BART Transformer** for high-quality summaries.
+- **AI-Powered Summarization** – Uses **T5 Transformer** for high-quality summaries.
 - **Supports Multiple Formats** – Works with **Text, PDF, DOCX, MP3, MP4, WAV** files.
 - **Speech-to-Text Integration** – Converts **audio/video files to text** before summarization.
 - **User-Friendly GUI** – Simple and interactive **Tkinter-based interface**.
