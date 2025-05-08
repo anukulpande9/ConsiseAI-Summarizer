@@ -1,53 +1,62 @@
+
 # 🌟 ConsiseAI – AI-Based Document Summarization Tool
 
-🚀 **ConsiseAI** is an advanced AI-powered tool for summarizing **text, PDFs, Word documents, and even audio/video transcriptions!**  
-It uses **T5 Transformer** for intelligent summarization and **OpenAI Whisper** for speech-to-text conversion.
+🚀 **ConsiseAI** is a robust AI-powered tool for summarizing **text, PDFs, Word documents, and even audio/video transcriptions!**  
+It combines the power of **T5 Transformer** for abstractive summarization and **OpenAI Whisper** for speech-to-text transcription.
 
 ---
 
 ## 🔹 Features
-- **AI-Powered Summarization** – Uses **T5 Transformer** for high-quality summaries.
-- **Supports Multiple Formats** – Works with **Text, PDF, DOCX, MP3, MP4, WAV** files.
-- **Speech-to-Text Integration** – Converts **audio/video files to text** before summarization.
-- **User-Friendly GUI** – Simple and interactive **Tkinter-based interface**.
-- **Multi-threaded Processing** – Faster summarization using **parallel computation**.
+
+- **AI-Powered Summarization** – Leverages **T5-large** for high-quality abstractive summaries.
+- **Multi-format Support** – Handles **Text, PDF, DOCX, MP3, MP4, WAV, FLAC**.
+- **Speech-to-Text Integration** – Uses **OpenAI Whisper** to convert audio/video to text.
+- **Page-wise Summarization** – Option to summarize entire documents or page-by-page.
+- **User-Friendly GUI** – Built using **Tkinter** with intuitive navigation.
+- **Multi-threaded Processing** – Faster summarization via **parallel threading**.
+- **Reset & Export** – Easily clear the workspace and export summaries.
+
+---
+
+## 🖥 System Requirements
+
+- **OS**: Windows 10+, Ubuntu 20.04+, macOS Monterey+
+- **RAM**: Minimum 8 GB (16 GB recommended)
+- **Disk Space**: Minimum 10 GB free
+- **Python**: Version 3.8 or above
+- **GPU**: Optional (for faster processing with T5 model)
 
 ---
 
 ## 🛠 Installation Guide
 
-### 1️⃣ Install Python  
-Check if Python is installed:
+### 1️⃣ Install Python
+
 ```sh
 python --version
 ```
-If not installed, [Download Python](https://www.python.org/downloads/) and install it.
 
-### 2️⃣ Install Dependencies  
-Run the following command in the project folder:
+If not installed: [Download Python](https://www.python.org/downloads/)
+
+### 2️⃣ Install Dependencies
+
 ```sh
 pip install torch transformers openai-whisper nltk pillow pypdf2 python-docx tk
 python -c "import nltk; nltk.download('punkt')"
 ```
 
-### 3️⃣ Install FFmpeg (For Audio/Video Support)
+### 3️⃣ Install FFmpeg (Required for Audio/Video Support)
 
-#### Windows:
-1. Download **FFmpeg** from: [https://ffmpeg.org/download.html](https://ffmpeg.org/download.html)
-2. Extract it to `C:\ffmpeg`
-3. Add `C:\ffmpeg\bin` to **System PATH**:
-   - Press **Win + R**, type `sysdm.cpl`, and press Enter.
-   - Go to **Advanced** → **Environment Variables**.
-   - Find the `Path` variable and click **Edit**.
-   - Click **New** and add `C:\ffmpeg\bin`.
-   - Click **OK**, then restart your computer.
+**Windows**:  
+Download & extract [FFmpeg](https://ffmpeg.org/download.html).  
+Add `C:\ffmpeg\bin` to **System PATH**.
 
-#### Linux (Ubuntu/Debian):
+**Linux**:
 ```sh
 sudo apt update && sudo apt install ffmpeg
 ```
 
-#### Mac (Homebrew):
+**macOS**:
 ```sh
 brew install ffmpeg
 ```
@@ -57,17 +66,20 @@ Verify installation:
 ffmpeg -version
 ```
 
-### 4️⃣ Run the Application  
+---
+
+## ▶️ Execution Steps
+
+1. Clone the repository or download the project files.
+2. Install all required dependencies as per the above steps.
+3. Open a terminal in the project directory.
+4. Run the application:
+
 ```sh
 python main.py
 ```
 
----
-
-## 🎯 How It Works
-1. **Enter text manually** or **upload a document/audio/video**.
-2. Click **Summarize** – AI processes the content and provides a concise summary.
-3. Copy/download the summarized text.
+5. The GUI will open. Choose the input mode (Text, Document, Audio/Video), and click Summarize!
 
 ---
 
@@ -75,60 +87,78 @@ python main.py
 
 | Format                | Supported |
 |-----------------------|-----------|
-| Plain Text            | ✅        |
-| PDF Documents         | ✅        |
-| Word Files (DOCX)     | ✅        |
-| Audio (MP3, WAV, FLAC) | ✅        |
-| Video (MP4, MKV, AVI)  | ✅        |
+| Plain Text            | ✅ |
+| PDF Documents         | ✅ |
+| Word Files (DOCX)     | ✅ |
+| Audio (MP3, WAV, FLAC) | ✅ |
+| Video (MP4, MKV, AVI)  | ✅ |
+
+---
+
+## 🧠 Models & Tech Stack
+
+- **Summarizer**: T5-large (Abstractive summarization)
+- **Transcriber**: OpenAI Whisper
+- **GUI**: Tkinter
+- **Text Preprocessing**: NLTK
+- **Parallelization**: Python threading
 
 ---
 
 ## 🚀 Troubleshooting
 
-- **ModuleNotFoundError**  
-  Install missing dependencies using:
-  ```sh
-  pip install -r requirements.txt
-  ```
+**ModuleNotFoundError**  
+```sh
+pip install -r requirements.txt
+```
 
-- **Whisper Error (`NoneType` issue)**  
-  Reinstall Whisper:
-  ```sh
-  pip uninstall whisper -y && pip install openai-whisper
-  ```
+**FFmpeg Not Found**  
+Ensure FFmpeg is installed and added to **PATH**.
 
-- **FFmpeg Not Found**  
-  Ensure FFmpeg is installed and added to **System PATH**.
+**Whisper NoneType Issue**  
+```sh
+pip uninstall whisper -y && pip install openai-whisper
+```
 
-- **PDF Extraction Error (`PdfFileReader is deprecated`)**  
-  Modify `main.py`:
-  ```python
-  from PyPDF2 import PdfReader
-  pdf_reader = PdfReader(file)
-  ```
-  Or downgrade PyPDF2:
-  ```sh
-  pip install PyPDF2==2.12.1
-  ```
+**PDF Reader Error**  
+Update `main.py` to use:
+```python
+from PyPDF2 import PdfReader
+```
+
+Or:
+```sh
+pip install PyPDF2==2.12.1
+```
 
 ---
 
-## 💡 Future Improvements
-- Cloud-based summarization (AWS/GCP)
-- Support for multiple AI models (PEGASUS, GPT-4, etc.)
-- Better UI/UX with modern frameworks
+## 🏗 Future Enhancements
+
+- Real-time summarization for live streams.
+- Multilingual summarization support.
+- Enhanced UI/UX (potentially migrate to PyQt or web-based interface).
+- Cloud-based processing (AWS/GCP support).
 
 ---
 
 ## 📜 License
-This project is open-source under the **MIT License**.
+
+MIT License.
 
 ---
 
-## 👨‍💻 Author
-Developed by **Anukul Pande (Team Lead)** and **Dev Chukambe** as a **Final Year Project**.
+## 👨‍💻 Authors
+
+- **Anukul N. Pande**
+- **Ram G. Rathod**
+- **Dev G. Chukambe**
+- **Rushikesh S. Mahulkar**
+
+(Under the guidance of **Prof. S. G. Taley**, PRMIT&R, Badnera)
 
 ---
 
-## 🌟 Support
-If you like this project, please ⭐ **star** the repo on GitHub! 😊
+## ⭐ Support
+
+If you find this project helpful, please ⭐ star the repository!
